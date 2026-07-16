@@ -1,0 +1,185 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "meta": {
+    "project": "Paulera Filmes",
+    "version": "1.0.0",
+    "description": "Narrative Design Tokens"
+  },
+
+  "color": {
+    "mist": {
+      "50": "#FCFCFB",
+      "100": "#F7F6F3",
+      "200": "#EFEDE8"
+    },
+
+    "fog": {
+      "100": "#E8E5DF",
+      "200": "#D9D5CC",
+      "300": "#C8C2B8"
+    },
+
+    "stone": {
+      "100": "#BDB7AE",
+      "200": "#9B948A",
+      "300": "#7B746C"
+    },
+
+    "bark": {
+      "500": "#51483F",
+      "700": "#3E362F",
+      "900": "#2A241F"
+    },
+
+    "forest": {
+      "300": "#6E8C62",
+      "500": "#48693D",
+      "700": "#2F4728"
+    },
+
+    "moss": {
+      "300": "#879E6F",
+      "500": "#60754B"
+    },
+
+    "amber": {
+      "300": "#D7A14A",
+      "500": "#B97824"
+    },
+
+    "moon": {
+      "100": "#FFFFFF",
+      "200": "#FDFDFD"
+    },
+
+    "error": "#B54343",
+    "warning": "#D28D1A",
+    "success": "#3D8B55",
+    "info": "#3A76C2"
+  },
+
+  "spacing": {
+    "seed": 4,
+    "root": 8,
+    "twig": 16,
+    "branch": 24,
+    "trunk": 40,
+    "forest": 64,
+    "canopy": 96,
+    "horizon": 160
+  },
+
+  "radius": {
+    "pebble": 6,
+    "leaf": 12,
+    "river": 20,
+    "horizon": 32,
+    "circle": 9999
+  },
+
+  "border": {
+    "hairline": 1,
+    "thin": 2,
+    "regular": 3
+  },
+
+  "opacity": {
+    "disabled": 0.38,
+    "muted": 0.56,
+    "overlay": 0.72,
+    "backdrop": 0.88
+  },
+
+  "shadow": {
+    "ground": "0 2px 4px rgba(0,0,0,.04)",
+
+    "leaf": "0 8px 20px rgba(0,0,0,.08)",
+
+    "branch": "0 20px 48px rgba(0,0,0,.12)",
+
+    "canopy": "0 40px 96px rgba(0,0,0,.18)"
+  },
+
+  "blur": {
+    "mist": 8,
+    "fog": 16,
+    "dream": 24
+  },
+
+  "zIndex": {
+    "ground": 0,
+    "content": 10,
+    "navigation": 50,
+    "overlay": 100,
+    "modal": 500,
+    "toast": 1000
+  },
+
+  "motion": {
+    "duration": {
+      "instant": 120,
+      "fast": 180,
+      "normal": 320,
+      "slow": 650,
+      "cinematic": 1200
+    },
+
+    "easing": {
+      "standard": "cubic-bezier(.4,0,.2,1)",
+      "soft": "cubic-bezier(.22,.61,.36,1)",
+      "dramatic": "cubic-bezier(.16,1,.3,1)"
+    }
+  },
+
+  "typography": {
+    "display": {
+      "size": 72,
+      "lineHeight": 1,
+      "weight": 600
+    },
+
+    "h1": {
+      "size": 56,
+      "lineHeight": 1.1,
+      "weight": 600
+    },
+
+    "h2": {
+      "size": 40,
+      "lineHeight": 1.15,
+      "weight": 600
+    },
+
+    "h3": {
+      "size": 32,
+      "lineHeight": 1.2,
+      "weight": 600
+    },
+
+    "body-lg": {
+      "size": 20,
+      "lineHeight": 1.7,
+      "weight": 400
+    },
+
+    "body": {
+      "size": 18,
+      "lineHeight": 1.7,
+      "weight": 400
+    },
+
+    "caption": {
+      "size": 14,
+      "lineHeight": 1.6,
+      "weight": 500
+    }
+  },
+
+  "container": {
+    "sm": 640,
+    "md": 768,
+    "lg": 1024,
+    "xl": 1280,
+    "2xl": 1440
+  }
+}
