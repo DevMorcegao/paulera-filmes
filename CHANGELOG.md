@@ -16,6 +16,29 @@ Documentation files maintain their own independent version numbers.
 
 Architecture Decisions (ADRs) are immutable and are not versioned through this file.
 
+## [0.3.0] - 2026-07-17
+
+### Added
+
+- Completed Sprint 02: Global Layout & Navigation Rail.
+- Primitive layout components: `Container`, `Section`, and `Grid` supporting standard spacing and grid tokens.
+- `ChapterRail` vertical navigation indicator, collapsing to collapsible accordion label on mobile using semantic `<details>` to support no-JS fallbacks.
+- `Footer` component supporting global and contextual modes.
+- `PageTransition` wrapper using `motion/react` presets.
+- `useActiveSection` hook tracking the active scroll page segment.
+
+### Changed
+
+- Root layout (`src/app/layout.tsx`) updated to integrate `ChapterRail`, `PageTransition`, and `Footer`.
+- Homepage structure (`src/app/page.tsx`) modularized with layout primitives and section IDs matching Chapter Rail targets.
+
+### Fixed
+
+- Fixed vertical navigation click scroll offsets using absolute window coordinates (`getBoundingClientRect().top + window.scrollY`) instead of element offset properties, solving alignment issues in nested layouts.
+- Fixed active chapter indicator highlight freezing on document bottom scrolls by adding scroll threshold checks and memoizing array variables (using serialized strings) to prevent IntersectionObserver recreate loops.
+- Fixed Tailwind v4 z-index compilation by moving `@theme` custom properties to the correct `--z-index-` prefix namespace.
+- Polished `ChapterRail` styling to match borderless clean floating mockups, integrating `lucide-react` icons (Compass, Leaf, TreePine, GitFork, Cherry, Sprout) with thin editorial line strokes and active indicators.
+
 ---
 
 ## [0.2.0] - 2026-07-16
