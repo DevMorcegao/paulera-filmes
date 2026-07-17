@@ -24,6 +24,29 @@ export function ChapterRail() {
   const sectionIds = chapters.map((c) => c.id);
   const activeId = useActiveSection(sectionIds, "arrival");
   const [isOpenMobile, setIsOpenMobile] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [windowHeight, setWindowHeight] = useState(800);
+  const [isMounted, setIsMounted] = useState(false);
+
+  React.useEffect(() => {
+    setIsMounted(true);
+    setScrollY(window.scrollY);
+    setWindowHeight(window.innerHeight);
+
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    const handleResize = () => {
+      setWindowHeight(window.innerHeight);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const activeChapter = chapters.find((c) => c.id === activeId) || chapters[0];
 
@@ -31,7 +54,6 @@ export function ChapterRail() {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      // Calculate absolute scroll position regardless of offsetParent boundaries
       const targetY = element.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({
         top: targetY,
@@ -48,9 +70,17 @@ export function ChapterRail() {
         className="fixed left-branch top-1/2 -translate-y-1/2 z-navigation hidden md:flex flex-col items-center gap-twig"
         aria-label="Navegação por capítulos"
       >
-        {chapters.map((chapter) => {
+        {chapters.map((chapter, index) => {
           const isActive = chapter.id === activeId;
           const Icon = chapter.icon;
+
+          // Estimate the physical Y position of this tick on the page
+          // Nav is centered vertically. Each item has a height and gap of approx 80px.
+          const tickViewportY = (windowHeight / 2) - 200 + (index * 80);
+          const tickPageY = scrollY + tickViewportY;
+          
+          // Hero section (arrival) occupies exactly the first viewport height (windowHeight)
+          const isTickOverDark = isMounted ? (tickPageY < windowHeight) : (activeId === "arrival");
 
           return (
             <a
@@ -68,8 +98,8 @@ export function ChapterRail() {
                 className={cn(
                   "w-6 h-6 stroke-[1.25] transition-all duration-normal ease-soft group-hover:scale-110",
                   isActive
-                    ? "text-bark-900 stroke-[1.75]"
-                    : "text-stone-300/80 group-hover:text-bark-700"
+                    ? (isTickOverDark ? "text-moon-100 stroke-[1.75]" : "text-bark-900 stroke-[1.75]")
+                    : (isTickOverDark ? "text-stone-300/40 group-hover:text-moon-100" : "text-stone-300/80 group-hover:text-bark-700")
                 )}
               />
 
@@ -78,8 +108,8 @@ export function ChapterRail() {
                 className={cn(
                   "mt-seed font-body text-[9px] font-bold uppercase tracking-widest transition-colors duration-normal text-center",
                   isActive
-                    ? "text-bark-900"
-                    : "text-stone-300/80 group-hover:text-bark-700"
+                    ? (isTickOverDark ? "text-moon-100" : "text-bark-900")
+                    : (isTickOverDark ? "text-stone-300/40 group-hover:text-moon-100" : "text-stone-300/80 group-hover:text-bark-700")
                 )}
               >
                 {chapter.label}

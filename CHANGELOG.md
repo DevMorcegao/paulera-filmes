@@ -16,6 +16,25 @@ Documentation files maintain their own independent version numbers.
 
 Architecture Decisions (ADRs) are immutable and are not versioned through this file.
 
+## [0.4.0] - 2026-07-17
+
+### Added
+
+- Completed Sprint 03: Hero Section & React Three Fiber canvas.
+- `SceneContainer` added as a persistent background canvas supporting the "One Persistent Scene" system design.
+- `SceneWrapper` client component implemented to bypass Server-Side Rendering (SSR) issues with React Three Fiber in Next.js.
+- Added a performance-friendly ambient 3D particle system (80 floating green/gold dodecahedrons) inside the canvas to demonstrate depth and lighting.
+- GSAP and `@gsap/react` added as project dependencies for advanced scroll choreography.
+- `FadeIn` reusable motion wrapper component using `useGSAP` for semantic entrance animations, configured with React 19 polymorphic types.
+- `Hero` component implementing typography layout and staggered entry animations aligned with Motion Bible.
+
+### Changed
+
+- Replaced transparent layout background with a hybrid structure: Hero is transparent to show the dark canvas, while subsequent editorial sections have solid `bg-mist-100` backgrounds to mask it on scroll.
+- Refactored `ChapterRail` to dynamically check the scroll boundaries of individual links, ensuring text toggles between light (on Hero) and dark (on editorial content) to maintain perfect legibility.
+
+---
+
 ## [0.3.0] - 2026-07-17
 
 ### Added

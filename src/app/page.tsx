@@ -1,30 +1,21 @@
 import React from "react";
+import { SceneWrapper } from "@/components/media/SceneWrapper";
 import { Section } from "@/components/layout/Section";
 import { Container } from "@/components/layout/Container";
 import { Grid } from "@/components/layout/Grid";
+import { Hero } from "@/components/layout/Hero";
 
 export default function Home() {
   return (
-    <main className="flex-1 flex flex-col bg-mist-100">
+    <main className="flex-1 flex flex-col relative z-content bg-transparent">
+      {/* Persistent Three.js Canvas */}
+      <SceneWrapper />
+
       {/* 1. Arrival Section */}
-      <Section id="arrival" spacing="horizon" className="min-h-screen flex items-center bg-mist-50">
-        <Container>
-          <div className="max-w-[75ch] flex flex-col gap-branch">
-            <span className="font-body text-caption uppercase tracking-wider text-amber-500 font-semibold">
-              Paulera Filmes
-            </span>
-            <h1 className="font-display text-display text-bark-900 leading-tight">
-              Cada história começa com a escuta.
-            </h1>
-            <p className="font-body text-body-lg text-stone-300">
-              Estúdio audiovisual explorando cinema, Inteligência Artificial Generativa, Motion Design, Animações 3D e Pós-Produção.
-            </p>
-          </div>
-        </Container>
-      </Section>
+      <Hero />
 
       {/* 2. Roots Section */}
-      <Section id="roots" spacing="horizon" className="border-t border-fog-200">
+      <Section id="roots" spacing="horizon" className="bg-mist-100 border-t border-fog-200">
         <Container>
           <Grid>
             <div className="col-span-4 md:col-span-3 lg:col-span-4 flex flex-col gap-twig">
@@ -66,7 +57,7 @@ export default function Home() {
       </Section>
 
       {/* 4. Branches Section */}
-      <Section id="branches" spacing="horizon" className="border-t border-fog-200">
+      <Section id="branches" spacing="horizon" className="bg-mist-100 border-t border-fog-200">
         <Container>
           <Grid>
             <div className="col-span-4 md:col-span-3 lg:col-span-4 flex flex-col gap-twig">
@@ -108,7 +99,7 @@ export default function Home() {
       </Section>
 
       {/* 6. Seeds Section */}
-      <Section id="seeds" spacing="horizon" className="border-t border-fog-200 pb-horizon">
+      <Section id="seeds" spacing="horizon" className="bg-mist-100 border-t border-fog-200 pb-horizon">
         <Container>
           <Grid>
             <div className="col-span-4 md:col-span-3 lg:col-span-4 flex flex-col gap-twig">
