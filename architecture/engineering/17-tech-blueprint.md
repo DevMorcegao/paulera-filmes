@@ -2,7 +2,7 @@
 title: Technical Blueprint
 project: Paulera Filmes
 document: 17-tech-blueprint
-version: 1.0.0
+version: 1.1.0
 status: Draft
 owner: Morcegao
 language: en-US
@@ -11,7 +11,7 @@ depends_on:
   - ../foundation/*
   - ../product/*
   - ../design/*
-last_updated: 2026-07-14
+last_updated: 2026-07-16
 ---
 
 # Technical Blueprint
@@ -161,6 +161,22 @@ Utility-first.
 Excellent DX.
 
 Easy mapping to Design Tokens.
+
+---
+
+## Component Library
+
+shadcn/ui
+
+Reason
+
+Accessible primitives (Radix UI).
+
+Tailwind-native.
+
+Not a dependency (fully owned code).
+
+No visual opinion, allowing the Design System to remain the authority.
 
 ---
 

@@ -141,7 +141,7 @@ Hover Motion
 
 # Sprint 08
 
-Leaves
+Atmosphere
 
 Microinteractions
 

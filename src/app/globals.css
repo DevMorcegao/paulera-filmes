@@ -1,0 +1,243 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* =============================================================================
+   Paulera Filmes — Design Token Theme
+   Source of Truth: architecture/SYSTEM-DESIGN.md v3.1.0
+   Token Reference: architecture/design/13-design-tokens.v2.json v2.0.0
+   ============================================================================= */
+
+@theme inline {
+  /* shadcn semantic mappings */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* shadcn radius mappings */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Font families */
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-display-family);
+}
+
+@theme {
+  /* =========================================================================
+     Color — Nature-derived palette
+     ========================================================================= */
+
+  --color-mist-50: #FCFCFB;
+  --color-mist-100: #F7F6F3;
+  --color-mist-200: #EFEDE8;
+
+  --color-fog-100: #E8E5DF;
+  --color-fog-200: #D9D5CC;
+  --color-fog-300: #C8C2B8;
+
+  --color-stone-100: #BDB7AE;
+  --color-stone-200: #9B948A;
+  --color-stone-300: #7B746C;
+
+  --color-bark-500: #51483F;
+  --color-bark-700: #3E362F;
+  --color-bark-900: #2A241F;
+
+  --color-forest-300: #6E8C62;
+  --color-forest-500: #48693D;
+  --color-forest-700: #2F4728;
+
+  --color-moss-300: #879E6F;
+  --color-moss-500: #60754B;
+
+  --color-amber-300: #D7A14A;
+  --color-amber-500: #B97824;
+
+  --color-moon-100: #FFFFFF;
+  --color-moon-200: #FDFDFD;
+
+  --color-ember-500: #A85D3E;
+
+  /* =========================================================================
+     Typography — Editorial publishing, not dashboards
+     Font families set via next/font CSS variables in layout.tsx
+     ========================================================================= */
+
+  --font-display: var(--font-display-family);
+  --font-body: var(--font-body-family);
+
+  --text-display: 5.25rem;
+  --text-display--line-height: 1.095;
+  --text-display--font-weight: 400;
+
+  --text-heading-lg: 3rem;
+  --text-heading-lg--line-height: 1.167;
+  --text-heading-lg--font-weight: 500;
+
+  --text-heading-md: 2rem;
+  --text-heading-md--line-height: 1.25;
+  --text-heading-md--font-weight: 500;
+
+  --text-heading-sm: 1.5rem;
+  --text-heading-sm--line-height: 1.333;
+  --text-heading-sm--font-weight: 500;
+
+  --text-body-lg: 1.1875rem;
+  --text-body-lg--line-height: 1.68;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.75;
+
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.54;
+  --text-caption--font-weight: 500;
+
+  /* =========================================================================
+     Spacing — Tree growth metaphor (rem)
+     ========================================================================= */
+
+  --spacing-seed: 0.25rem;
+  --spacing-root: 0.5rem;
+  --spacing-twig: 1rem;
+  --spacing-branch: 1.5rem;
+  --spacing-trunk: 2.5rem;
+  --spacing-forest: 4rem;
+  --spacing-canopy: 6rem;
+  --spacing-horizon: 10rem;
+
+  /* =========================================================================
+     Radius — Natural curves (px)
+     ========================================================================= */
+
+  --radius-pebble: 6px;
+  --radius-leaf: 12px;
+  --radius-river: 20px;
+  --radius-horizon: 32px;
+  --radius-circle: 9999px;
+
+  /* =========================================================================
+     Breakpoints (rem)
+     ========================================================================= */
+
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 90rem;
+
+  /* =========================================================================
+     Shadow — Soft, ambient, never hard/dark
+     ========================================================================= */
+
+  --shadow-ground: 0 2px 4px rgba(0,0,0,.04);
+  --shadow-leaf: 0 8px 20px rgba(0,0,0,.08);
+  --shadow-branch: 0 20px 48px rgba(0,0,0,.12);
+  --shadow-canopy: 0 40px 96px rgba(0,0,0,.18);
+
+  /* =========================================================================
+     Easing — Natural acceleration, never aggressive
+     ========================================================================= */
+
+  --ease-standard: cubic-bezier(.4,0,.2,1);
+  --ease-soft: cubic-bezier(.22,.61,.36,1);
+  --ease-dramatic: cubic-bezier(.16,1,.3,1);
+  --ease-cinematic: cubic-bezier(.19,1,.22,1);
+}
+
+/* =============================================================================
+   Motion durations and z-index — plain custom properties
+   Consumed by 14-animation-tokens.ts and component logic, not Tailwind utilities
+   ============================================================================= */
+
+:root {
+  --duration-instant: 120ms;
+  --duration-fast: 180ms;
+  --duration-normal: 320ms;
+  --duration-slow: 650ms;
+  --duration-cinematic: 1200ms;
+
+  --z-ground: 0;
+  --z-content: 10;
+  --z-navigation: 50;
+  --z-overlay: 100;
+  --z-modal: 500;
+  --z-toast: 1000;
+
+  /* shadcn semantic color mapping → Paulera palette (light mode) */
+  --background: #F7F6F3;
+  --foreground: #2A241F;
+  --card: #E8E5DF;
+  --card-foreground: #2A241F;
+  --popover: #F7F6F3;
+  --popover-foreground: #2A241F;
+  --primary: #48693D;
+  --primary-foreground: #FCFCFB;
+  --secondary: #EFEDE8;
+  --secondary-foreground: #3E362F;
+  --muted: #EFEDE8;
+  --muted-foreground: #7B746C;
+  --accent: #D7A14A;
+  --accent-foreground: #2A241F;
+  --destructive: #A85D3E;
+  --border: #D9D5CC;
+  --input: #D9D5CC;
+  --ring: #60754B;
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: #2A241F;
+  --foreground: #F7F6F3;
+  --card: #3E362F;
+  --card-foreground: #F7F6F3;
+  --popover: #3E362F;
+  --popover-foreground: #F7F6F3;
+  --primary: #6E8C62;
+  --primary-foreground: #2A241F;
+  --secondary: #51483F;
+  --secondary-foreground: #EFEDE8;
+  --muted: #51483F;
+  --muted-foreground: #9B948A;
+  --accent: #D7A14A;
+  --accent-foreground: #F7F6F3;
+  --destructive: #A85D3E;
+  --border: #51483F;
+  --input: #51483F;
+  --ring: #879E6F;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
